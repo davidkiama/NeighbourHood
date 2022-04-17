@@ -15,9 +15,18 @@
 </head>
 
 <body>
-    <p>Home</p>
-    {% block content %}
-    {% endblock %}
+    <div id="container">
+        <header class="header">
+            Header
+        </header>
+
+        <main class="main">
+            {% block content %}
+            {% endblock %}
+
+        </main>
+    </div>
+
 </body>
 
 </html>

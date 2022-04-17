@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<div class="box">
+
+
+    <form action="" class="form__setup-profile">
+
+        <h3 class="heading-3">Setup Profile</h3>
+
+        <label for="full_names">Full Names</label>
+        <input type="text" name="full_names" required>
+
+        <label for="email">Email</label>
+        <input type="email" name="email" required>
+
+        <p class="location-info">
+            *If your Location/Area is not in the list,
+            Click here to add
+        </p>
+
+        <label for="gen_location">General Location</label>
+        <input list="neibourhood_locations" name="neibourhood_location"
+            id="neibourhood_location" required placeholder="Choose neibourhood Location">
+        <datalist id="neibourhood_locations">
+            <option value="Nairobi">
+            <option value="Kiambu">
+            <option value="Kajiado">
+            <option value="Machakos">
+            <option value="Murang'a">
+        </datalist>
+
+        <label for="neibourhood_name">Specific Location</label>
+        <input list="neibourhood_names" name="neibourhood_name" id="neibourhood_name"
+            required placeholder="Choose neibourhood name">
+        <datalist id="neibourhood_names">
+            <option value="Kasarani">
+            <option value="Thika">
+            <option value="Rongai">
+            <option value="Tala">
+            <option value="Kiharu">
+        </datalist>
+
+        <button type="submit" class="btn">Submit</button>
+
+
+    </form>
+
+
+</div>
+{% endblock %}

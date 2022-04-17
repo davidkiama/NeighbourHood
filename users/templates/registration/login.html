@@ -11,20 +11,18 @@
 
 {% block content %}
 
-<div class="auth">
 
-    <div class="auth__box">
-        <h3 class="heading-3">Login</h3>
+<div class="box">
+    <h3 class="heading-3">Login</h3>
 
 
-        <form method="POST" class="auth__form">
-            {% csrf_token %}
+    <form method="POST" class="auth__form">
+        {% csrf_token %}
 
-            {{ form.as_p }}
+        {{ form.as_p }}
 
-            <button type="submit" class="btn auth__btn">Login</button>
-        </form>
-    </div>
+        <button type="submit" class="btn auth__btn">Login</button>
+    </form>
 </div>
 
 
