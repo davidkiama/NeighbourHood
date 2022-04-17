@@ -3,7 +3,7 @@ from unicodedata import name
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
-from .models import Profile, Neighbourhood
+from .models import Profile, Neighbourhood, Business
 
 # Create your views here.
 
@@ -73,5 +73,17 @@ def setup_profile(request):
 
 @login_required
 def setup_business(request):
+
+    if request.method == 'POST':
+
+        name = request.POST['business_name']
+        email = request.POST['business_email']
+        neighbourhood = get_or_create_neighbourhood(request)
+
+        business = Business(name=name, email=email,
+                            neighbourhood=neighbourhood, user=request.user)
+        business.create_business()
+
+        return render(request, 'setup_business.html')
 
     return render(request, 'setup_business.html')
