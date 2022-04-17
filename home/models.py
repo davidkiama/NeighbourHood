@@ -13,7 +13,7 @@ class Profile(models.Model):
         'Neighbourhood', on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return f'{self.user.username} Profile'
+        return f'{self.name} Profile'
 
     def save_profile(self):
         self.save()
@@ -45,4 +45,27 @@ class Neighbourhood(models.Model):
 
     @classmethod
     def find_neighbourhood_by_id(cls, id):
+        return cls.objects.get(id=id)
+
+
+class Business(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=100)
+    neighbourhood = models.ForeignKey(
+        'Neighbourhood', on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return f'{self.name}'
+
+    def create_business(self):
+        self.save()
+
+    def delete_business(self):
+        self.delete()
+
+    def update_business(self):
+        self.save()
+
+    @classmethod
+    def find_business_by_id(cls, id):
         return cls.objects.get(id=id)
