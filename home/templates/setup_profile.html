@@ -7,7 +7,8 @@
 <div class="box">
 
 
-    <form action="" class="form__setup-profile">
+    <form class="form__setup-profile" method="POST">
+        {% csrf_token %}
 
         <h3 class="heading-3">Setup Profile</h3>
 
@@ -23,26 +24,12 @@
         </p>
 
         <label for="gen_location">General Location</label>
-        <input list="neibourhood_locations" name="neibourhood_location"
-            id="neibourhood_location" required placeholder="Choose neibourhood Location">
-        <datalist id="neibourhood_locations">
-            <option value="Nairobi">
-            <option value="Kiambu">
-            <option value="Kajiado">
-            <option value="Machakos">
-            <option value="Murang'a">
-        </datalist>
+        <input name="neighbourhood_location" placeholder="General location" required>
 
-        <label for="neibourhood_name">Specific Location</label>
-        <input list="neibourhood_names" name="neibourhood_name" id="neibourhood_name"
-            required placeholder="Choose neibourhood name">
-        <datalist id="neibourhood_names">
-            <option value="Kasarani">
-            <option value="Thika">
-            <option value="Rongai">
-            <option value="Tala">
-            <option value="Kiharu">
-        </datalist>
+
+        <label for="neighbourhood_name">Specific Location</label>
+        <input name="neighbourhood_name" placeholder="Choose neighbourhood name" required>
+
 
         <button type="submit" class="btn">Submit</button>
 
