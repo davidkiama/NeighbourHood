@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<div class="box">
+
+
+    <form class="form__setup-profile" method="POST">
+        {% csrf_token %}
+
+        <h3 class="heading-3">Setup Business</h3>
+
+        <label for="biz_name">Business Name</label>
+        <input type="text" name="biz_name" required>
+
+        <label for="email">Business Email</label>
+        <input type="email" name="email" required>
+
+
+        <label for="biz_location">Business Location</label>
+        <input name="biz_location" placeholder="Business location" required>
+
+
+        <label for="biz_location_name">Neibourhood area</label>
+        <input name="biz_location_name" placeholder="Area located" required>
+
+
+        <button type="submit" class="btn">Submit</button>
+
+
+    </form>
+
+
+</div>
+{% endblock %}

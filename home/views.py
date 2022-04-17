@@ -1,4 +1,5 @@
 
+from unicodedata import name
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
@@ -23,32 +24,54 @@ def get_or_create_neighbourhood(request):
         neighbourhood = Neighbourhood.objects.filter(
             name=neigh_name, location=neigh_loc).first()
 
-        if neighbourhood:
-            neighbourhood.update_occupants_count()
-            return neighbourhood
-        else:
-            # Create new neighbourhood
-            neighbourhood = Neighbourhood(
-                name=neigh_name, location=neigh_loc, admin=request.user, occupants_count=1)
+        return neighbourhood
 
-            neighbourhood.create_neighbourhood()
-            return neighbourhood
     except:
-        return False
+        # Create new neighbourhood
+        neighbourhood = Neighbourhood(
+            name=neigh_name, location=neigh_loc, admin=request.user, occupants_count=1)
+
+        neighbourhood.create_neighbourhood()
+        return neighbourhood
 
 
 @login_required
 def setup_profile(request):
 
     if request.method == 'POST':
-        user = request.user
-        name = request.POST['full_names']
-        email = request.POST['email']
-        neighbourhood = get_or_create_neighbourhood(request)
 
-        # Create profile
-        profile = Profile(user=user, name=name, email=email,
-                          neighbourhood=neighbourhood)
-        profile.save_profile()
+        try:
+            # Get or create profile
+
+            profile = Profile.objects.get(user=request.user)
+
+            # If profile exists we update it
+            profile.name = request.POST['full_names']
+            profile.email = request.POST['email']
+            profile.neighbourhood = get_or_create_neighbourhood(request)
+
+            profile.save_profile()
+
+        except:
+            # Create new profile
+            user = request.user
+            name = request.POST['full_names']
+            email = request.POST['email']
+            neighbourhood = get_or_create_neighbourhood(request)
+            # Update occupants count when creating new profile
+            neighbourhood.update_occupants_count()
+
+            profile = Profile(user=user, name=name, email=email,
+                              neighbourhood=neighbourhood)
+            profile.save_profile()
+
+        finally:
+            return render(request, 'setup_profile.html')
 
     return render(request, 'setup_profile.html')
+
+
+@login_required
+def setup_business(request):
+
+    return render(request, 'setup_business.html')
