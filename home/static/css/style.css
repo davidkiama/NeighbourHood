@@ -45,7 +45,7 @@ body {
 
 .box {
   width: 40%;
-  margin: 0 auto;
+  margin: 5rem auto;
   padding: 2rem;
   min-height: 40rem;
 
@@ -55,9 +55,6 @@ body {
   transform: translate(-50%, -50%);
 
   box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.5);
-}
-.box-2 {
-  margin-top: 5rem;
 }
 
 .box h3 {
@@ -117,7 +114,6 @@ a {
 
 .nav__items {
   justify-self: center;
-  /* margin: auto; */
   flex-grow: 1;
   display: flex;
   justify-content: space-around;
@@ -250,4 +246,41 @@ a {
 
 .form__setup-profile button {
   margin-top: 1.4rem;
+}
+
+/* media queries */
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 55.5%;
+  }
+
+  .header__center input {
+    font-size: 1.4rem;
+    padding: 0.4rem;
+  }
+
+  .heading-1 {
+    font-size: 2rem;
+  }
+
+  .header__center {
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .nav__items {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .header__center input {
+    width: 80%;
+  }
+  .heading-1 {
+    font-size: 1.8rem;
+  }
+  .nav__item {
+    font-size: 1.5rem;
+  }
 }
