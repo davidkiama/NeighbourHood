@@ -76,3 +76,33 @@ class Business(models.Model):
 
         businesses = cls.objects.filter(name__icontains=search_term)
         return businesses
+
+
+class Post(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=50)
+    content = models.TextField()
+    neighbourhood = models.ForeignKey(
+        'Neighbourhood', on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return f'{self.title}'
+
+    def create_post(self):
+        self.save()
+
+    def delete_post(self):
+        self.delete()
+
+    def update_post(self):
+        self.save()
+
+    @classmethod
+    def find_post_by_id(cls, id):
+        return cls.objects.get(id=id)
+
+    @classmethod
+    def search_by_title(cls, search_term):
+
+        posts = cls.objects.filter(title__icontains=search_term)
+        return posts
