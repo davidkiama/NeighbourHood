@@ -3,15 +3,14 @@
 
 {% block content %}
 
-<div class="businesses">
+<div class="posts">
     <a href="{% url 'create_post' %} " class="btn btn--create-biz">Create post</a>
 
     {% if posts %}
     {% for post in posts %}
-    <div class="biz">
-        <h3 class="biz__name">{{ post.name }}</h3>
-        <p class="biz__email">{{ business.email }}</p>
-        <p class="biz__location">{{ business.neighbourhood }}</p>
+    <div class="post">
+        <h3 class="post__title">{{ post.title }}</h3>
+        <p class="post__content">{{ post.content }}</p>
 
     </div>
     {% endfor %}
