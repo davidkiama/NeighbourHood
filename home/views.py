@@ -1,6 +1,6 @@
 
 from unicodedata import name
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
 from .models import Profile, Neighbourhood, Business, Post
@@ -11,7 +11,8 @@ from .models import Profile, Neighbourhood, Business, Post
 
 
 def home(request):
-    return render(request, 'index.html')
+    posts = Post.objects.all()
+    return render(request, 'index.html', {'posts': posts})
 
 
 def get_or_create_neighbourhood(request):
@@ -117,12 +118,17 @@ def search_business(request):
 def create_post(request):
 
     if request.method == 'POST':
-        profile = Profile.objects.get(user=request.user)
+        try:
+            profile = Profile.objects.get(user=request.user)
+        except Exception as e:
+            print(e)
+            # redirect to setup pofile
+            return redirect(setup_profile)
 
         post_title = request.POST['post_title']
         post_content = request.POST['post_content']
         post_neighbourhood = profile.neighbourhood
-        user = request.users
+        user = request.user
 
         post = Post(title=post_title, content=post_content,
                     neighbourhood=post_neighbourhood, user=user)
