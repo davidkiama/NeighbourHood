@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<div class="box box-2">
+
+
+    <form class="form__create-blog" method="POST">
+        {% csrf_token %}
+
+        <h3 class="heading-3">Setup Business</h3>
+
+        <label for="post_title">Post title</label>
+        <input type="text" name="post_title" placeholder="Post title..." required>
+
+        <label for="content">Enter content</label>
+        <textarea name="post_content" type="text" cols="30" rows="10" required
+            placeholder="Post content..."></textarea>
+
+
+        <button type="submit" class="btn">Post</button>
+
+
+    </form>
+
+
+</div>
+{% endblock %}

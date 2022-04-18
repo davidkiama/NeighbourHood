@@ -27,6 +27,7 @@ body {
 
 .btn {
   cursor: pointer;
+  font-size: 1.8rem;
   border: none;
   padding: 1.5rem;
   height: 100%;
@@ -53,6 +54,9 @@ body {
   transform: translate(-50%, -50%);
 
   box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.5);
+}
+.box-2 {
+  margin-top: 5rem;
 }
 
 .box h3 {
@@ -122,10 +126,6 @@ a {
   font-size: 2rem;
 }
 
-.businesses {
-  padding: 1rem;
-}
-
 .btn--create-biz {
   display: block;
   margin-left: 88%;
@@ -137,11 +137,13 @@ a {
 }
 
 .businesses {
+  padding: 1rem;
+
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  gap: 5rem;
+  gap: 3rem;
 }
 
 .biz {
@@ -156,6 +158,52 @@ a {
   border-radius: 10px;
   box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.5);
 }
+
+.form__create-blog {
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.form__create-blog label {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin: 0.5rem;
+}
+
+.form__create-blog input,
+.form__create-blog textarea {
+  border-radius: 5px;
+  margin: 1rem;
+  padding: 1rem;
+  font-size: 2rem;
+  border: 1px solid black;
+}
+
+.form__create-blog input:focus,
+.form__create-blog textarea:focus {
+  outline: none;
+}
+
+/* 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
 
 .logout {
   color: red;
