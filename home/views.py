@@ -3,7 +3,7 @@ from unicodedata import name
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
-from .models import Profile, Neighbourhood, Business
+from .models import Profile, Neighbourhood, Business, Post
 
 # Create your views here.
 
@@ -112,3 +112,21 @@ def search_business(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html', {'message': message, 'businesses': False})
+
+
+def create_post(request):
+
+    if request.method == 'POST':
+        profile = Profile.objects.get(user=request.user)
+
+        post_title = request.POST['post_title']
+        post_content = request.POST['post_content']
+        post_neighbourhood = profile.neighbourhood
+        user = request.users
+
+        post = Post(title=post_title, content=post_content,
+                    neighbourhood=post_neighbourhood, user=user)
+        post.create_post()
+
+        return render(request, 'create_post.html')
+    return render(request, 'create_post.html')
