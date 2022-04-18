@@ -74,15 +74,62 @@ input {
   border: 1px solid #dbe0df;
 }
 
+a {
+  text-decoration: none;
+  color: var(--color-black-1);
+}
+
 #container {
   background-color: var(--color-grey);
   min-height: 100vh;
   position: relative;
 }
 
+.header {
+  height: 8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem 2rem;
+
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.header__center {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  margin: 0 2rem;
+}
+
+.header__center input {
+  padding: 0.8rem;
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.nav__items {
+  justify-self: center;
+  /* margin: auto; */
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav__item {
+  font-size: 2rem;
+}
+
 .form__setup-profile {
   display: flex;
   flex-direction: column;
+}
+
+.logout {
+  color: red;
+  text-decoration: none;
 }
 
 .location-info {
