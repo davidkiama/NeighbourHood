@@ -8,12 +8,10 @@
 
     {% for business in businesses %}
     <div class="biz">
+        <h3 class="biz__name">{{ business.name }}</h3>
+        <p class="biz__email">{{ business.email }}</p>
+        <p class="biz__location">{{ business.neighbourhood }}</p>
 
-        <div class="biz__info">
-            <h3 class="biz__name">{{ business.name }}</h3>
-            <p class="biz__email">{{ business.email }}</p>
-            <p class="biz__location">{{ business.neighbourhood }}</p>
-        </div>
     </div>
     {% endfor %}
 
