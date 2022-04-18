@@ -127,11 +127,6 @@ a {
   font-size: 2rem;
 }
 
-.btn--create-biz {
-  display: block;
-  margin-left: 88%;
-}
-
 .form__setup-profile {
   display: flex;
   flex-direction: column;
@@ -139,12 +134,22 @@ a {
 
 .businesses {
   padding: 1rem;
+  padding-top: 8rem; /* for the create button*/
 
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   gap: 3rem;
+
+  position: relative;
+}
+
+.btn--create-biz {
+  position: absolute;
+  right: 1rem;
+  top: 0.5rem;
+  height: fit-content;
 }
 
 .biz {
@@ -189,9 +194,19 @@ a {
 
 .posts {
   display: flex;
-
   flex-direction: column;
+
+  position: relative;
+  padding-top: 8rem; /* for the create button*/
 }
+
+.btn--create-post {
+  position: absolute;
+  right: 1rem;
+  top: 0.5rem;
+  height: fit-content;
+}
+
 .post {
   width: 80%;
   margin: 0 auto;
