@@ -122,6 +122,15 @@ a {
   font-size: 2rem;
 }
 
+.businesses {
+  padding: 1rem;
+}
+
+.btn--create-biz {
+  display: block;
+  margin-left: 88%;
+}
+
 .form__setup-profile {
   display: flex;
   flex-direction: column;

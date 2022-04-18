@@ -24,15 +24,22 @@ def get_or_create_neighbourhood(request):
         neighbourhood = Neighbourhood.objects.filter(
             name=neigh_name, location=neigh_loc).first()
 
-        return neighbourhood
+        if neighbourhood:
+            return neighbourhood
+        else:
+            # Create new neighbourhood
+            print('Creating new neighbourhood')
+            neighbourhood = Neighbourhood(
+                name=neigh_name, location=neigh_loc, admin=request.user, occupants_count=1)
 
-    except:
-        # Create new neighbourhood
-        neighbourhood = Neighbourhood(
-            name=neigh_name, location=neigh_loc, admin=request.user, occupants_count=1)
+            neighbourhood.create_neighbourhood()
 
-        neighbourhood.create_neighbourhood()
-        return neighbourhood
+            return neighbourhood
+
+    except Exception as e:
+        print(e)
+
+        return None
 
 
 @login_required
@@ -79,6 +86,7 @@ def setup_business(request):
         name = request.POST['business_name']
         email = request.POST['business_email']
         neighbourhood = get_or_create_neighbourhood(request)
+        neighbourhood.update_occupants_count()
 
         business = Business(name=name, email=email,
                             neighbourhood=neighbourhood, user=request.user)
@@ -87,7 +95,6 @@ def setup_business(request):
         return render(request, 'setup_business.html')
 
     return render(request, 'setup_business.html')
-
 
 
 def biz_list(reauest):
