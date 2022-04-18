@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="businesses">
+
+    {% for business in businesses %}
+    <div class="biz">
+
+        <div class="biz__info">
+            <h3 class="biz__name">{{ business.name }}</h3>
+            <p class="biz__location">{{ business.email }}</p>
+        </div>
+    </div>
+    {% endfor %}
+
+
+</div>
+{% endblock %}

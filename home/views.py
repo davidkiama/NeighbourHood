@@ -87,3 +87,9 @@ def setup_business(request):
         return render(request, 'setup_business.html')
 
     return render(request, 'setup_business.html')
+
+
+
+def biz_list(reauest):
+    businesses = Business.objects.all()
+    return render(reauest, 'biz_list.html', {'businesses': businesses})
