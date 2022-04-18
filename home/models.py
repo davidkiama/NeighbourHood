@@ -70,3 +70,9 @@ class Business(models.Model):
     @classmethod
     def find_business_by_id(cls, id):
         return cls.objects.get(id=id)
+
+    @classmethod
+    def search_by_title(cls, search_term):
+
+        businesses = cls.objects.filter(name__icontains=search_term)
+        return businesses

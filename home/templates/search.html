@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="businesses">
+    <a href="{% url 'setup_business' %} " class="btn btn--create-biz">Create business</a>
+
+    {% if businesses %}
+
+    {% for business in businesses %}
+    <div class="biz">
+        <h3 class="biz__name">{{ business.name }}</h3>
+        <p class="biz__email">{{ business.email }}</p>
+        <p class="biz__location">{{ business.neighbourhood }}</p>
+
+    </div>
+    {% endfor %}
+
+    {% else %}
+    <h1 class="heading-1">
+        No businesses found
+    </h1>
+
+    {% endif %}
+
+
+</div>
+{% endblock %}

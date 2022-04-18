@@ -100,3 +100,15 @@ def setup_business(request):
 def biz_list(reauest):
     businesses = Business.objects.all()
     return render(reauest, 'biz_list.html', {'businesses': businesses})
+
+
+def search_business(request):
+    if 'business' in request.GET and request.GET['business']:
+        search_term = request.GET.get('business')
+        businesses = Business.search_by_title(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'search.html', {'message': message, 'businesses': businesses})
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'search.html', {'message': message, 'businesses': False})
