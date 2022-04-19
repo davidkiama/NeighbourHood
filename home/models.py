@@ -80,7 +80,7 @@ class Business(models.Model):
 
 class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=200)
     content = models.TextField()
     neighbourhood = models.ForeignKey(
         'Neighbourhood', on_delete=models.CASCADE, null=True)

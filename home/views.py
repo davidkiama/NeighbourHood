@@ -79,7 +79,6 @@ def setup_profile(request):
                               neighbourhood=neighbourhood)
             profile.save_profile()
 
-        finally:
             return render(request, 'setup_profile.html')
 
     return render(request, 'setup_profile.html')
@@ -99,7 +98,7 @@ def setup_business(request):
                             neighbourhood=neighbourhood, user=request.user)
         business.create_business()
 
-        return render(request, 'setup_business.html')
+        return redirect(home)
 
     return render(request, 'setup_business.html')
 
