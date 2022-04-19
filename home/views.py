@@ -141,5 +141,5 @@ def create_post(request):
                     neighbourhood=post_neighbourhood, user=user)
         post.create_post()
 
-        return render(request, 'create_post.html')
+        return redirect(home)
     return render(request, 'create_post.html')
