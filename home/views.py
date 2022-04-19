@@ -14,8 +14,10 @@ def home(request):
     posts = Post.objects.all()
     return render(request, 'index.html', {'posts': posts})
 
+
 def contact(request):
     return render(request, 'contact.html')
+
 
 def get_or_create_neighbourhood(request):
 
@@ -124,8 +126,10 @@ def create_post(request):
             profile = Profile.objects.get(user=request.user)
         except Exception as e:
             print(e)
+            message = 'You need to create a profile before you can create a post'
+
             # redirect to setup pofile
-            return redirect(setup_profile)
+            return redirect(setup_profile, {'message': message})
 
         post_title = request.POST['post_title']
         post_content = request.POST['post_content']
