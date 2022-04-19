@@ -215,27 +215,9 @@ a {
 .post__content {
   font-size: 1.8rem;
 }
-/* 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
 
 .logout {
-  color: red;
+  color: rgba(255, 0, 0, 0.753);
   text-decoration: none;
 }
 
