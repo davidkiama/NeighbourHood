@@ -1,9 +1,11 @@
 
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -33,6 +35,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -65,10 +68,25 @@ WSGI_APPLICATION = 'NeighbourHood.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
+# postgres://cbvfupibjxrrvt:ba6626a05c974ea3802419320eeeec245f72f86cb2b09f3d4ee518687ab09563@ec2-44-194-4-127.compute-1.amazonaws.com:5432/de8mnrpjb6qjrb
+
+# postgres://eozclymeaistpf:73f31014e1031559989071423a5bd21a8808e28cce13ee2166fdd5ddabdb2083@ec2-52-3-60-53.compute-1.amazonaws.com:5432/d2g5fn0grveqsp
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd2g5fn0grveqsp',
+        'USER': 'eozclymeaistpf',
+        'PASSWORD': '73f31014e1031559989071423a5bd21a8808e28cce13ee2166fdd5ddabdb2083',
+        'HOST': 'ec2-52-3-60-53.compute-1.amazonaws.com',
+        'PORT': 5432
     }
 }
 
@@ -100,7 +118,15 @@ LOGOUT_REDIRECT_URL = 'home'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
