@@ -5,6 +5,11 @@
 
 
 <div class="box">
+    {% if messages %}
+    {% for message in messages %}
+    <p class="warn">{{ message }}</p>
+    {% endfor %}
+    {% endif %}
 
 
     <form class="form__setup-profile" method="POST">

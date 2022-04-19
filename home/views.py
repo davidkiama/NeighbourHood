@@ -1,9 +1,10 @@
 
-from unicodedata import name
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
 from .models import Profile, Neighbourhood, Business, Post
+
+from django.contrib import messages
 
 # Create your views here.
 
@@ -126,10 +127,10 @@ def create_post(request):
             profile = Profile.objects.get(user=request.user)
         except Exception as e:
             print(e)
-            message = 'You need to create a profile before you can create a post'
+            messages.success(request, 'Must setup a profile.')
 
             # redirect to setup pofile
-            return redirect(setup_profile, {'message': message})
+            return redirect(setup_profile)
 
         post_title = request.POST['post_title']
         post_content = request.POST['post_content']
