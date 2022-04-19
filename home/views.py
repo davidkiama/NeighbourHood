@@ -14,6 +14,8 @@ def home(request):
     posts = Post.objects.all()
     return render(request, 'index.html', {'posts': posts})
 
+def contact(request):
+    return render(request, 'contact.html')
 
 def get_or_create_neighbourhood(request):
 
