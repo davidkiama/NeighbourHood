@@ -17,6 +17,12 @@ The following languages and technologies have been used on this project:
 
 [Live demo](https://neighbourhood-xxiv.herokuapp.com/)
 
+## Admin Dashboard
+
+[link](https://neighbourhood-xxiv.herokuapp.com/admin/)
+username - admin
+password - admin
+
 ## Author
 
 [David Kiama](https://github.com/davidkiama)
