@@ -1,6 +1,6 @@
-# Awwwards clone
+# Neighbourhood
 
-A web application that allows users to upload projects and rate them.
+A web application that allows users to find and share posts in their neighbourhood.
 
 ## Technologies Used
 
@@ -15,7 +15,7 @@ The following languages and technologies have been used on this project:
 
 ## Live Demo
 
-[Live demo](https://awwwards-xxiv.herokuapp.com/)
+[Live demo](https://neighbourhood-xxiv.herokuapp.com/)
 
 ## Author
 
@@ -23,7 +23,7 @@ The following languages and technologies have been used on this project:
 
 ## Project setup and instructions
 
-Download or clone the source code from [GitHub](https://github.com/davidkiama/Awwwards.git)
+Download or clone the source code from [GitHub](https://github.com/davidkiama/NeighbourHood.git)
 
 Download and install any stable version of Python.[Python 3.7.3](https://www.python.org/downloads/)
 
