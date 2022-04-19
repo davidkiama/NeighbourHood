@@ -20,7 +20,8 @@ The following languages and technologies have been used on this project:
 ## Admin Dashboard
 
 [link](https://neighbourhood-xxiv.herokuapp.com/admin/)
-username - admin
+
+username - admin  
 password - admin
 
 ## Author
