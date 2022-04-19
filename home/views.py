@@ -64,6 +64,7 @@ def setup_profile(request):
             profile.neighbourhood = get_or_create_neighbourhood(request)
 
             profile.save_profile()
+            return redirect(home)
 
         except:
             # Create new profile
